@@ -11,10 +11,10 @@ if uploaded_file:
     image = Image.open(uploaded_file).convert('RGB')
     st.image(uploaded_file)
 if st.button('Predict'): 
-    uploaded_file = uploaded_file.resize(224, 224)
+    uploaded_file = image.resize(224, 224)
     uploaded_file_to_array = tf.keras.preprocessing.image.img_to_array(uploaded_file)
-    uploaded_file_to_array = np.expand(uploaded_file_to_array, axis=0)
+    uploaded_file_to_array = np.expand_dims(uploaded_file_to_array, axis=0)
         
     prediction = model.predict(uploaded_file_to_array)
-    st.write('Prediction Complete')
+    st.write(f'Prediction {prediction}')
     
