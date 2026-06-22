@@ -4,6 +4,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from PIL import Image
 
+class_name=['healthy','sick']
 model = load_model('Chicken_disease_model.h5') 
 st.title('Chicken Disease Detection') 
 uploaded_file = st.file_uploader('Upload Chicken Image')
@@ -14,7 +15,9 @@ if st.button('Predict'):
     uploaded_img = image.resize((224, 224))
     uploaded_file_to_array = tf.keras.preprocessing.image.img_to_array(uploaded_img)
     uploaded_file_to_array = np.expand_dims(uploaded_file_to_array, axis=0)
-        
+
+    
     prediction = model.predict(uploaded_file_to_array)
-    st.write(f'Prediction {prediction}')
+    prediction_classes=class_name[np.argmax(prediction)]
+    st.write(f'Prediction {prediction_classes}')
     
