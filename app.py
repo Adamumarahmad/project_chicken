@@ -2,11 +2,13 @@ import streamlit as st
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+from PIL import Image
 
 model = load_model('Chicken_disease_model.h5') 
 st.title('Chicken Disease Detection') 
 uploaded_file = st.file_uploader('Upload Chicken Image')
 if uploaded_file: 
+    image = Image.uploaded_file.convert('RGB')
     st.image(uploaded_file)
 if st.button('Predict'): 
     uploaded_file = uploaded_file.resize(224, 224)
