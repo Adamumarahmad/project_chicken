@@ -1,4 +1,4 @@
 matplotlib
-numpy
-tensorflow
+numpy<2.0.0
+tensorflow-cpu==2.14.0
 streamlit
