@@ -13,12 +13,12 @@ st.markdown(
     
     /* Sidebar background */
     [data-testid="stSidebar"] {
-        background-color: #2e3b4e;
+        background-color: blue;
     }
     
     /* Optional: Change sidebar text color to make it readable */
     [data-testid="stSidebar"] __element__ { 
-        color: white;
+        color: red;
     }
     </style>
     """,
