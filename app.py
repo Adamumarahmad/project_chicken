@@ -3,7 +3,32 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from PIL import Image
+import streamlit as st
 
+st.markdown(
+    """
+    <style>
+    /* Main background */
+    .stApp {
+        background-color: #f0f2f6;
+    }
+    
+    /* Sidebar background */
+    [data-testid="stSidebar"] {
+        background-color: #2e3b4e;
+    }
+    
+    /* Optional: Change sidebar text color to make it readable */
+    [data-testid="stSidebar"] __element__ { 
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.sidebar.title("Sidebar")
+st.title("Main Content")
 class_name=['healthy','sick']
 model = load_model('Chicken_disease_model.h5') 
 st.title('Chicken Disease Detection') 
